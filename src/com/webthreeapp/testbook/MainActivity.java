@@ -1,6 +1,7 @@
-package com.example.testbook;
+package com.webthreeapp.testbook;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,13 +16,19 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		Uri uri = Uri.parse("content://com.example.testbook.assetfile/book.pdf");
-		//intent.setPackage("com.example.sreader");
+		Intent intent = new Intent();
+		intent.setAction("com.webthreeapp.book.VIEW");
+		Uri uri = Uri.parse("content://com.webthreeapp.testbook.assetfile/book.pdf");
+		intent.setClassName("com.webthreeapp.sreader", "com.artifex.mupdfdemo.MuPDFActivity");
 		intent.setDataAndType(uri,"application/pdf");
-
-		startActivity(intent);
-
+		try{
+			 startActivity(intent);
+		}catch (ActivityNotFoundException e){
+			//playstoreへ
+			Uri uri2 = Uri.parse("market://details?id=" + "com.webthreeapp.sreader");
+			Intent it = new Intent(Intent.ACTION_VIEW, uri2);
+			startActivity(it);
+		}
 	}
 
 	@Override

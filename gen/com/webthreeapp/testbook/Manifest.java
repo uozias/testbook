@@ -5,10 +5,10 @@
  * should not be modified by hand.
  */
 
-package com.example.testbook;
+package com.webthreeapp.testbook;
 
 public final class Manifest {
     public static final class permission {
-        public static final String AssetProvider="com.example.testbook.permission.AssetProvider";
+        public static final String AssetProvider="com.webthreeapp.book.permission.AssetProvider";
     }
 }

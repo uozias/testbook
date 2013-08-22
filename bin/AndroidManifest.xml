@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testbook"
+    package="com.webthreeapp.testbook"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,7 +8,9 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
-    <permission android:name="com.example.testbook.permission.AssetProvider" />
+    <permission android:name="com.webthreeapp.book.permission.AssetProvider"
+        android:protectionLevel="signature"
+        />
 
     <application
         android:allowBackup="true"
@@ -16,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.testbook.MainActivity"
+            android:name="com.webthreeapp.testbook.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider android:name="com.example.testbook.AssetProvider"
-            android:authorities="com.example.testbook.assetfile"
+        <provider android:name="com.webthreeapp.testbook.AssetProvider"
+            android:authorities="com.webthreeapp.testbook.assetfile"
             android:exported="true"
-            android:permission="com.example.testbook.permission.AssetProvider"
+            android:permission="com.webthreeapp.book.permission.AssetProvider"
             />
 
     </application>
