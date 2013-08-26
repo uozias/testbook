@@ -4,5 +4,6 @@
     <string name="app_name">testBook</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="show_book">コンテンツを読む</string>
 
 </resources>
