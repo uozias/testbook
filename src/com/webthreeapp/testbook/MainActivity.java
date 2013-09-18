@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
+	private static String bookName = "testbook.2";  //この本の名前を表す文字列(英数字のみ)
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends Activity {
 		Uri uri = Uri.parse("content://com.webthreeapp.testbook.assetfile/book.pdf");
 		intent.setClassName("com.webthreeapp.sreader", "com.artifex.mupdfdemo.MuPDFActivity");
 		intent.setDataAndType(uri,"application/pdf");
+		intent.putExtra("bookName", bookName);
 		try{
 			 startActivity(intent);
 		}catch (ActivityNotFoundException e){
