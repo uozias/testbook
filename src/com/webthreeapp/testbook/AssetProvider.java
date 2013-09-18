@@ -6,6 +6,7 @@ import java.io.IOException;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
@@ -20,15 +21,18 @@ public class AssetProvider extends ContentProvider {
 	@Override
 	public AssetFileDescriptor openAssetFile(Uri uri, String mode)
 			throws FileNotFoundException {
+		AssetManager assetManager = getContext().getAssets();
 		Log.i(TAG, "open Asset file");
 		try {
-			return getContext().getAssets().openFd("book.pdf");
+			return assetManager.openFd("book.mp3");
+			//return assetManager.openFd("book.pdf");
 		} catch (IOException e) {
 			e.printStackTrace();
 			Log.e(TAG, "ERROR: " + e);
 			throw new FileNotFoundException(e.getMessage());
 		}
 	}
+
 
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
