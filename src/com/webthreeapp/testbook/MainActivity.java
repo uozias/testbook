@@ -3,6 +3,7 @@ package com.webthreeapp.testbook;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,13 +17,19 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
-	private static String bookName = "testbook.2";  //この本の名前を表す文字列(英数字のみ)
-
+	private String bookName ;  //この本の名前を表す文字列(英数字のみ)
+	private String bookNameJ;
+	private String playURL;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		Resources res = getResources();
+		bookName = res.getString(R.string.book_name);  //この本の名前を表す文字列
+		bookNameJ = res.getString(R.string.book_name_j);
+		playURL = res.getString(R.string.play_url);
 
 		//起動時にコンテンツを表示
 		showContent();
@@ -54,6 +61,8 @@ public class MainActivity extends Activity {
 		intent.setClassName("com.webthreeapp.sreader", "com.artifex.mupdfdemo.MuPDFActivity");
 		intent.setDataAndType(uri,"application/pdf");
 		intent.putExtra("bookName", bookName);
+		intent.putExtra("bookNameJ", bookNameJ);
+		intent.putExtra("playURL", playURL);
 		try{
 			 startActivity(intent);
 		}catch (ActivityNotFoundException e){

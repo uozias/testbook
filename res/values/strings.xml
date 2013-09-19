@@ -5,5 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="show_book">コンテンツを読む</string>
+    <string name="book_name">testbook.2</string>
+    <string name="book_name_j">テスト書籍2</string>
+    <string name="play_url">http://www.saizo-aoyagi.jp/</string>
 
 </resources>
